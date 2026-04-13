@@ -15,14 +15,14 @@ public class Main {
 
         PerguntaJava[] perguntas = new PerguntaJava[2];
         perguntas[0] = new PerguntaJava(
-                "Qual palavra e usada para criar uma classe que nao pode ser instanciada?",
-                new String[]{"interface", "abstract", "extends", "static"},
-                2
+                "Qual tecnologia tem sido amplamente discutida em 2025 por impactar empregos e criacao de conteudo digital?",
+                new String[]{"IA generativa", "DVDs", "Fax", "Disquetes"},
+                1
         );
         perguntas[1] = new PerguntaJava(
-                "Qual metodo e usado para mostrar texto no terminal em Java?",
-                new String[]{"printLine()", "System.out.println()", "console.write()", "show()"},
-                2
+                "Qual problema global continua sendo uma das maiores preocupacoes em 2025/2026?",
+                new String[]{"Mudancas climaticas", "Falta de videogames", "Excesso de gelo no deserto", "Fim da internet"},
+                1
         );
 
         System.out.println("Bem-vindo ao Templo do Codigo.");
@@ -33,7 +33,7 @@ public class Main {
 
         System.out.println();
         System.out.println("Voce entrou em uma ruina antiga.");
-        System.out.println("Para chegar ao tesouro final, sera preciso explorar salas e abrir portas magicas com conhecimentos de Java.");
+        System.out.println("Para chegar ao tesouro final, sera preciso explorar salas e abrir portas magicas com conhecimentos sobre a atualidade.");
         System.out.println();
 
         boolean jogoAtivo = true;
@@ -118,6 +118,18 @@ public class Main {
                 }
 
                 if (jogador.estaVivo()) {
+                    int xpGanho = 50;
+
+                    if (inimigo instanceof EsqueletoGuerreiro) {
+                        xpGanho = 70;
+                    } else if (inimigo instanceof OrcBrutal) {
+                        xpGanho = 100;
+                    } else if (inimigo instanceof Goblin) {
+                        xpGanho = 40;
+                    }
+
+                    jogador.ganharXp(xpGanho);
+
                     int ouroGanho = 15;
 
                     if (inimigo instanceof EsqueletoGuerreiro) {

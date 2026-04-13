@@ -5,12 +5,18 @@ public abstract class Personagem {
     private int vida;
     private int ataque;
     private int defesa;
+    private int nivel;
+    private int xp;
+    private int xpParaProximoNivel;
 
     public Personagem(String nome, int vida, int ataque, int defesa) {
         this.nome = nome;
         this.vida = vida;
         this.ataque = ataque;
         this.defesa = defesa;
+        this.nivel = 1;
+        this.xp = 0;
+        this.xpParaProximoNivel = 100;
     }
 
     public String getNome() {
@@ -63,5 +69,38 @@ public abstract class Personagem {
 
     public boolean estaVivo() {
         return vida > 0;
+    }
+
+    public void ganharXp(int quantidade) {
+        xp += quantidade;
+        System.out.println(nome + " ganhou " + quantidade + " XP!");
+
+        while (xp >= xpParaProximoNivel) {
+            subirNivel();
+        }
+    }
+
+    private void subirNivel() {
+        xp -= xpParaProximoNivel;
+        nivel++;
+        xpParaProximoNivel = (int) (xpParaProximoNivel * 1.5);
+        vida += 10;
+        ataque += 2;
+        defesa += 2;
+
+        System.out.println(nome + " subiu de nivel!");
+        System.out.println("Agora esta no nivel " + nivel);
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public int getXpParaProximoNivel() {
+        return xpParaProximoNivel;
     }
 }
