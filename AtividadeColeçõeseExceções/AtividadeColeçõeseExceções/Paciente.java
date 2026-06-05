@@ -1,5 +1,4 @@
 package AtividadeColeçõeseExceções;
-
 public class Paciente {
     private String nome;
     private int idade;
